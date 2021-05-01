@@ -1,0 +1,14 @@
+body {
+  font-size: 1.5rem;
+}
+
+input {
+  width: 50%;
+  height: 25px;
+}
+
+input[type="submit"] {
+  width: 15%;
+  display: block;
+  margin-top: 1%;
+}

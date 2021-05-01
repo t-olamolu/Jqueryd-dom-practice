@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie App</title>
+    <link rel="stylesheet" href="movieapp.css" />
+  </head>
+  <body>
+    <div id="form"></div>
+    <div id="list">
+      <ul></ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+      //Part 2
+      $("#form").append(
+        $("<h3> Movie Form <h3/>"),
+        $("<form/>").append(
+          $("<input/>", {
+            type: "text",
+            id: "title",
+            name: "title",
+            placeholder: "Input Movie Title",
+          }),
+          $("<input/>", {
+            type: "number",
+            id: "rating",
+            name: "rating",
+            placeholder: "Rating",
+            min: "1",
+            max: "10",
+          }),
+          $("<input/>", {
+            type: "submit",
+            id: "submit",
+            value: "Submit",
+          })
+        )
+      );
+      $("#submit").on("click", function (e) {
+        e.preventDefault();
+        let title = $("#title").val();
+        let rating = $("#rating").val();
+        $("ul").append(
+          `<li>${title}, rating: ${rating} <button>X</button></li>`
+        );
+      });
+
+      $("ul").on("click", "button", function (e) {
+        $(e.target).closest("li").remove();
+      });
+    </script>
+  </body>
+</html>
